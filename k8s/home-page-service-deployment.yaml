@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: home-page-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: home-page-service
+  template:
+    metadata:
+      labels:
+        app: home-page-service
+    spec:
+      containers:
+      - name: home-page-service
+        image: your-container-registry/home-page-service:latest
+        ports:
+        - containerPort: 5001
